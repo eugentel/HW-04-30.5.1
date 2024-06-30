@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from config import *
 
 @pytest.fixture(autouse=True)
 def driver():
@@ -20,9 +21,9 @@ def driver():
 def test_get_my_pets_count(driver):
     """ Тест количества питомцев на странице"""
     # Вводим email
-    driver.find_element(By.ID, 'email').send_keys('ya1@ya.ru')
+    driver.find_element(By.ID, 'email').send_keys(EMAIL)
     # Вводим пароль
-    driver.find_element(By.ID, 'pass').send_keys('ya1')
+    driver.find_element(By.ID, 'pass').send_keys(PASSWORD)
     # Нажимаем на кнопку входа в аккаунт
     driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
     driver.get('https://petfriends.skillfactory.ru/my_pets')
@@ -41,9 +42,9 @@ def test_get_my_pets_count(driver):
 def test_get_my_pets_with_photo_count(driver):
     """ Тест количества питомцев с фото на странице больше половины """
     # Вводим email
-    driver.find_element(By.ID, 'email').send_keys('ya1@ya.ru')
+    driver.find_element(By.ID, 'email').send_keys(EMAIL)
     # Вводим пароль
-    driver.find_element(By.ID, 'pass').send_keys('ya1')
+    driver.find_element(By.ID, 'pass').send_keys(PASSWORD)
     # Нажимаем на кнопку входа в аккаунт
     driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
     driver.get('https://petfriends.skillfactory.ru/my_pets')
@@ -67,9 +68,9 @@ def test_get_my_pets_with_name_breed_age(driver):
     """ Тест не пустых name, breed, age  питомцев """
     driver.implicitly_wait(10)  # Задаем неявное ожидание
     # Вводим email
-    driver.find_element(By.ID, 'email').send_keys('ya1@ya.ru')
+    driver.find_element(By.ID, 'email').send_keys(EMAIL)
     # Вводим пароль
-    driver.find_element(By.ID, 'pass').send_keys('ya1')
+    driver.find_element(By.ID, 'pass').send_keys(PASSWORD)
     # Нажимаем на кнопку входа в аккаунт
     driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
     driver.get('https://petfriends.skillfactory.ru/my_pets')
@@ -88,9 +89,9 @@ def test_get_my_pets_with_name_breed_age(driver):
 def test_get_my_pets_different_name(driver):
     """ Тест не повторяющихся имен питомцев """
     # Вводим email
-    driver.find_element(By.ID, 'email').send_keys('ya1@ya.ru')
+    driver.find_element(By.ID, 'email').send_keys(EMAIL)
     # Вводим пароль
-    driver.find_element(By.ID, 'pass').send_keys('ya1')
+    driver.find_element(By.ID, 'pass').send_keys(PASSWORD)
     # Нажимаем на кнопку входа в аккаунт
     driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
     driver.get('https://petfriends.skillfactory.ru/my_pets')
@@ -109,9 +110,9 @@ def test_get_my_pets_different_name(driver):
 def test_get_my_pets_all_unique(driver):
     """ Тест уникальности питомцев """
     # Вводим email
-    driver.find_element(By.ID, 'email').send_keys('ya1@ya.ru')
+    driver.find_element(By.ID, 'email').send_keys(EMAIL)
     # Вводим пароль
-    driver.find_element(By.ID, 'pass').send_keys('ya1')
+    driver.find_element(By.ID, 'pass').send_keys(PASSWORD)
     # Нажимаем на кнопку входа в аккаунт
     driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
     driver.get('https://petfriends.skillfactory.ru/my_pets')
